@@ -7,12 +7,15 @@ const services = {
     requiresAuth: false,
     description: "Authentication and user management service",
   },
-  books: {
-    name: "book-service",
-    url: process.env.BOOK_SERVICE_URL || "http://localhost:3004",
+  laptops: {
+    name: "laptop-service",
+    url:
+      process.env.LAPTOP_SERVICE_URL ||
+      process.env.BOOK_SERVICE_URL ||
+      "http://localhost:3004",
     healthCheck: "/health",
     requiresAuth: false,
-    description: "Book catalog and management service",
+    description: "Laptop catalog and management service",
   },
   cart: {
     name: "cart-service",
@@ -45,10 +48,10 @@ export const routeConfig = [
     description: "User profile management endpoints",
   },
   {
-    path: "/v1/books",
-    service: services.books,
+    path: "/v1/laptops",
+    service: services.laptops,
     requiresAuth: false,
-    description: "Book catalog endpoints",
+    description: "Laptop catalog endpoints",
   },
   {
     path: "/v1/cart",

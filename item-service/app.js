@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
-import bookRoutes from "./src/routes/book.routes.js";
+import laptopRoutes from "./src/routes/laptop.routes.js";
 import { swaggerSpec } from "./src/config/swagger.js";
 
 dotenv.config();
@@ -25,7 +25,7 @@ app.get("/api-docs.json", (req, res) => {
   res.send(swaggerSpec);
 });
 
-app.use("/api/books", bookRoutes);
+app.use("/api/laptops", laptopRoutes);
 app.get("/health", (req, res) => res.json({ status: "UP" }));
 
 mongoose
@@ -36,10 +36,12 @@ mongoose
   .then(() => {
     console.log("MongoDB connected");
     const server = app.listen(PORT, () =>
-      console.log(`Book Service running on port ${PORT}`)
+      console.log(`Laptop Service running on port ${PORT}`)
     );
     process.on("SIGTERM", () => {
-      console.log("SIGTERM received, shutting down Book Service gracefully...");
+      console.log(
+        "SIGTERM received, shutting down Laptop Service gracefully..."
+      );
       server.close(() => process.exit(0));
     });
   })

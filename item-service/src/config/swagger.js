@@ -4,11 +4,11 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "BookVerse Book Service API",
+      title: "Laptop Catalog Service API",
       version: "1.0.0",
-      description: "Book catalog and management service for BookVerse",
+      description: "Laptop catalog and management service",
       contact: {
-        name: "BookVerse Team",
+        name: "Catalog Team",
       },
     },
     servers: [
@@ -35,78 +35,49 @@ const options = {
         },
       },
       schemas: {
-        Book: {
+        Laptop: {
           type: "object",
           properties: {
-            _id: {
-              type: "string",
-              description: "Book ID",
-            },
-            title: {
-              type: "string",
-              description: "Book title",
-            },
-            author: {
-              type: "string",
-              description: "Book author",
-            },
+            _id: { type: "string", description: "Laptop ID" },
+            Brand: { type: "string", description: "Laptop brand" },
+            Model: { type: "string", description: "Laptop model" },
+            Spec: { type: "string", description: "Key specifications" },
             price: {
               type: "number",
               format: "float",
-              description: "Book price",
+              description: "Laptop price",
             },
             category: {
               type: "string",
-              description: "Book category/genre",
+              description: "Laptop category (e.g., Gaming, Ultrabook)",
             },
             description: {
               type: "string",
-              description: "Book description",
-            },
-            publication_year: {
-              type: "integer",
-              description: "Year of publication",
+              description: "Laptop description",
             },
             image_url: {
               type: "string",
               format: "uri",
-              description: "Book cover image URL",
+              description: "Product image URL",
             },
             coverImage: {
               type: "string",
               format: "uri",
-              description: "Book cover image URL (alias)",
+              description: "Product image URL (alias)",
             },
           },
         },
-        BookInput: {
+        LaptopInput: {
           type: "object",
-          required: ["title", "author", "price", "category"],
+          required: ["Brand", "Model", "Spec", "price", "category"],
           properties: {
-            title: {
-              type: "string",
-            },
-            author: {
-              type: "string",
-            },
-            price: {
-              type: "number",
-              format: "float",
-              minimum: 0,
-            },
-            category: {
-              type: "string",
-            },
-            description: {
-              type: "string",
-            },
-            publication_year: {
-              type: "integer",
-            },
-            image_url: {
-              type: "string",
-              format: "uri",
-            },
+            Brand: { type: "string" },
+            Model: { type: "string" },
+            Spec: { type: "string" },
+            price: { type: "number", format: "float", minimum: 0 },
+            category: { type: "string" },
+            description: { type: "string" },
+            image_url: { type: "string", format: "uri" },
           },
         },
         Error: {

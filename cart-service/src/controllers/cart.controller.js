@@ -2,34 +2,42 @@ import Cart from "../models/cart.model.js";
 import CartItem from "../models/cartItem.model.js";
 import axios from "axios";
 
-// Book service URL for fetching book details
-const BOOK_SERVICE_URL =
-  process.env.BOOK_SERVICE_URL || "http://localhost:3004/api/books";
+// Laptop service URL for fetching laptop details
+const LAPTOP_SERVICE_URL =
+  process.env.LAPTOP_SERVICE_URL ||
+  process.env.BOOK_SERVICE_URL ||
+  "http://localhost:3004/api/laptops";
 
-// Fetch book details from book service
-const fetchBookDetails = async (bookId) => {
+// Fetch laptop details from laptop service
+const fetchLaptopDetails = async (laptopId) => {
   try {
     const response = await axios.get(
-      `${BOOK_SERVICE_URL.replace(/\/+$/, "")}/${bookId}`
+      `${LAPTOP_SERVICE_URL.replace(/\/+$/, "")}/${laptopId}`
     );
     return response.data;
   } catch (err) {
-    console.warn(`Book not found: ${bookId}`);
+    console.warn(`Laptop not found: ${laptopId}`);
     return null;
   }
 };
 
-// Get cart details with populated books
+// Get cart details with populated laptops
 const getCartDetails = async (cartId) => {
   const items = await CartItem.find({ cart: cartId });
   return await Promise.all(
     items.map(async (i) => {
-      const book = await fetchBookDetails(i.book);
+      const laptop = await fetchLaptopDetails(i.laptop);
+      const laptopPayload = laptop || {
+        _id: i.laptop,
+        Brand: "Unknown",
+        Model: "",
+      };
       return {
         _id: i._id,
         quantity: i.quantity,
-        price: book ? book.price * i.quantity : 0,
-        book: book || { _id: i.book, title: "Book not found" },
+        price: laptop ? laptop.price * i.quantity : 0,
+        laptop: laptopPayload,
+        book: laptopPayload,
       };
     })
   );
@@ -74,9 +82,9 @@ export const getCart = async (req, res) => {
 
 // Add item to cart
 export const addToCart = async (req, res) => {
-  const { bookId } = req.body;
+  const { laptopId } = req.body;
   console.log("[Cart Controller] Add to cart request:", {
-    bookId,
+    laptopId,
     userId: req.user?.id,
     userFromHeaders: {
       id: req.header("x-user-id"),
@@ -86,16 +94,17 @@ export const addToCart = async (req, res) => {
   });
 
   try {
-    if (!bookId) {
-      return res.status(400).json({ message: "Book ID is required" });
+    if (!laptopId) {
+      return res.status(400).json({ message: "Laptop ID is required" });
     }
 
     if (!req.user || !req.user.id) {
       return res.status(401).json({ message: "User not authenticated" });
     }
 
-    const book = await fetchBookDetails(bookId);
-    if (!book) return res.status(404).json({ message: "Book does not exist" });
+    const laptop = await fetchLaptopDetails(laptopId);
+    if (!laptop)
+      return res.status(404).json({ message: "Laptop does not exist" });
 
     let cart = await Cart.findOne({ user: req.user.id });
     console.log("[Cart Controller] Found cart:", cart);
@@ -104,7 +113,7 @@ export const addToCart = async (req, res) => {
       console.log("[Cart Controller] Created new cart:", cart);
     }
 
-    let item = await CartItem.findOne({ cart: cart._id, book: bookId });
+    let item = await CartItem.findOne({ cart: cart._id, laptop: laptopId });
     console.log("[Cart Controller] Found cart item:", item);
     if (item) {
       item.quantity += 1;
@@ -116,7 +125,7 @@ export const addToCart = async (req, res) => {
     } else {
       item = await CartItem.create({
         cart: cart._id,
-        book: bookId,
+        laptop: laptopId,
         quantity: 1,
       });
       console.log("[Cart Controller] Created new cart item:", item);
@@ -136,12 +145,12 @@ export const addToCart = async (req, res) => {
 
 // Remove one item from cart
 export const removeOneFromCart = async (req, res) => {
-  const { bookId } = req.body;
+  const { laptopId } = req.body;
   try {
     const cart = await Cart.findOne({ user: req.user.id });
     if (!cart) return res.status(404).json({ message: "Cart not found" });
 
-    const item = await CartItem.findOne({ cart: cart._id, book: bookId });
+    const item = await CartItem.findOne({ cart: cart._id, laptop: laptopId });
     if (!item) return res.status(404).json({ message: "Item not in cart" });
 
     item.quantity -= 1;
@@ -168,12 +177,18 @@ export const removeCartItem = async (req, res) => {
     const items = await CartItem.find({ cart: item.cart });
     const detailedItems = await Promise.all(
       items.map(async (i) => {
-        const book = await fetchBookDetails(i.book);
+        const laptop = await fetchLaptopDetails(i.laptop);
+        const laptopPayload = laptop || {
+          _id: i.laptop,
+          Brand: "Unknown",
+          Model: "",
+        };
         return {
           _id: i._id,
           quantity: i.quantity,
-          price: book ? book.price * i.quantity : 0,
-          book: book || { _id: i.book, title: "Book not found" },
+          price: laptop ? laptop.price * i.quantity : 0,
+          laptop: laptopPayload,
+          book: laptopPayload,
         };
       })
     );

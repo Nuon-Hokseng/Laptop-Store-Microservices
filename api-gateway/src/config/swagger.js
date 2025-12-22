@@ -4,12 +4,12 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "BookVerse API Gateway",
+      title: "LaptopVerse API Gateway",
       version: "2.0.0",
       description:
-        "Central API Gateway for BookVerse microservices - routes requests to Auth, Book, Cart, and Order services",
+        "Central API Gateway for microservices - routes requests to Auth, Laptop, Cart, and Order services",
       contact: {
-        name: "BookVerse Team",
+        name: "Catalog Team",
       },
     },
     servers: [
@@ -42,8 +42,8 @@ const options = {
         description: "Authentication endpoints (proxied to Auth Service)",
       },
       {
-        name: "Books",
-        description: "Book catalog endpoints (proxied to Book Service)",
+        name: "Laptops",
+        description: "Laptop catalog endpoints (proxied to Laptop Service)",
       },
       {
         name: "Cart",

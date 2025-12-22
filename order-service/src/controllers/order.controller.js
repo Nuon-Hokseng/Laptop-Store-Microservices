@@ -79,12 +79,18 @@ export const createOrder = async (req, res) => {
       return res.status(400).json({ message: "Cart is empty" });
     }
 
-    const orderItems = cart.items.map((item) => ({
-      bookId: item.book._id,
-      title: item.book.title,
-      quantity: item.quantity,
-      price: item.price,
-    }));
+    const orderItems = cart.items.map((item) => {
+      const product = item.laptop || item.book;
+      const title =
+        product?.title ||
+        `${product?.Brand || ""} ${product?.Model || ""}`.trim();
+      return {
+        laptopId: product?._id,
+        title,
+        quantity: item.quantity,
+        price: item.price,
+      };
+    });
 
     const totalPrice = orderItems.reduce((sum, item) => sum + item.price, 0);
 
@@ -150,13 +156,24 @@ export const getUserOrders = async (req, res) => {
 
 export const getAllOrders = async (req, res) => {
   try {
+    console.log("[getAllOrders] Starting query...");
+    console.log("[getAllOrders] DB connection state:", Order.db.readyState);
+    console.log("[getAllOrders] Collection name:", Order.collection.name);
+
     // Admin listing: return all orders, newest first, without payment details
     const orders = await Order.find({})
       .sort({ createdAt: -1 })
       .select("-payment");
+
+    console.log(
+      `[getAllOrders] Returning ${orders.length} orders from DB:`,
+      orders
+        .slice(0, 2)
+        .map((o) => ({ id: o._id, items: o.items.length, date: o.createdAt }))
+    );
     res.json(orders);
   } catch (err) {
-    console.error("Error fetching all orders:", err.message);
+    console.error("Error fetching all orders:", err.message, err.stack);
     res.status(500).json({ message: err.message });
   }
 };

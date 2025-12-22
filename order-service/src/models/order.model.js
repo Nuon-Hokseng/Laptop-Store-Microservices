@@ -4,8 +4,7 @@ const orderSchema = new mongoose.Schema(
     userId: { type: String, required: true },
     items: [
       {
-        bookId: { type: String, required: true },
-        // Store book title for history display without extra lookups
+        laptopId: { type: String, required: true },
         title: { type: String },
         quantity: Number,
         price: Number,

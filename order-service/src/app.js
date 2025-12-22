@@ -41,6 +41,15 @@ mongoose
   })
   .then(() => {
     console.log("MongoDB connected");
+    try {
+      const conn = mongoose.connection;
+      // Mongoose exposes connection details: name (db), host
+      console.log(
+        `MongoDB connection details => host: ${conn.host}, db: ${conn.name}`
+      );
+    } catch (e) {
+      console.log("MongoDB connection details unavailable:", e?.message || e);
+    }
     const server = app.listen(PORT, () => {
       console.log(`Order Service running on port ${PORT}`);
     });

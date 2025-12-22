@@ -91,13 +91,13 @@ const options = {
         OrderItem: {
           type: "object",
           properties: {
-            bookId: {
+            laptopId: {
               type: "string",
-              description: "Book ID",
+              description: "Laptop ID",
             },
             title: {
               type: "string",
-              description: "Book title",
+              description: "Laptop title",
             },
             quantity: {
               type: "integer",

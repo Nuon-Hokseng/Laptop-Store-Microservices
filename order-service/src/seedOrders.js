@@ -10,12 +10,12 @@ const demoOrders = [
     userId: "demo-user-1",
     items: [
       {
-        bookId: "1",
+        laptopId: "1",
         quantity: 2,
         price: 14.99,
       },
       {
-        bookId: "4",
+        laptopId: "4",
         quantity: 1,
         price: 16.99,
       },
@@ -34,7 +34,7 @@ const demoOrders = [
     userId: "demo-user-2",
     items: [
       {
-        bookId: "5",
+        laptopId: "5",
         quantity: 1,
         price: 11.99,
       },
@@ -53,12 +53,12 @@ const demoOrders = [
     userId: "demo-user-1",
     items: [
       {
-        bookId: "7",
+        laptopId: "7",
         quantity: 1,
         price: 13.49,
       },
       {
-        bookId: "3",
+        laptopId: "3",
         quantity: 1,
         price: 13.99,
       },

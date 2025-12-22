@@ -72,9 +72,9 @@ router.post("/cart/add", authMiddleware, addToCart);
  *         application/json:
  *           schema:
  *             type: object
- *             required: [bookId]
+ *             required: [laptopId]
  *             properties:
- *               bookId:
+ *               laptopId:
  *                 type: string
  *     responses:
  *       200:

@@ -201,14 +201,14 @@ app.get("/api-docs.json", (req, res) => {
 // ==================== Root Route ====================
 app.get("/", (req, res) => {
   res.json({
-    service: "BookVerse API Gateway",
+    service: "LaptopVerse API Gateway",
     version: "2.0.0",
     status: "running",
     documentation: "/api-docs",
     endpoints: {
       health: "/health",
       auth: "/v1/auth",
-      books: "/v1/books",
+      laptops: "/v1/laptops",
       cart: "/v1/cart",
       orders: "/v1/orders",
     },
