@@ -1,3 +1,5 @@
-[dotenv@17.2.3] injecting env (7) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.2.3] injecting env (7) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
 MongoDB connected
 Cart Service running on port 3001
+SIGTERM received, shutting down Cart Service gracefully...
+t Service gracefully...

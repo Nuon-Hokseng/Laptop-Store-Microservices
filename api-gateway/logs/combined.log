@@ -1147,3 +1147,60 @@
 2025-12-24 12:27:49 [info]: GET /v1/laptops
 2025-12-24 12:27:49 [info]: GET /v1/categories/brands
 2025-12-24 12:27:49 [info]: GET /v1/categories/laptop-categories
+2025-12-24 14:21:22 [info]: Redis disabled, using in-memory rate limiting
+2025-12-24 14:21:22 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-24 14:21:22 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-24 14:21:22 [info]: Configuring route: /v1/laptops -> http://localhost:3004 (Auth: false)
+2025-12-24 14:21:22 [info]: Configuring route: /v1/categories -> http://localhost:3004 (Auth: false)
+2025-12-24 14:21:22 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-24 14:21:22 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-24 14:21:22 [info]: 🚀 API Gateway started successfully
+2025-12-24 14:21:22 [info]: 📍 Environment: development
+2025-12-24 14:21:22 [info]: 🌐 Port: 3000
+2025-12-24 14:21:22 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-24 14:21:22 [info]: 📊 Redis: Disabled
+2025-12-24 14:21:22 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-24 14:21:22 [info]: ✅ Ready to handle requests
+2025-12-24 14:26:38 [info]: Redis disabled, using in-memory rate limiting
+2025-12-24 14:26:38 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-24 14:26:38 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-24 14:26:38 [info]: Configuring route: /v1/laptops -> http://localhost:3004 (Auth: false)
+2025-12-24 14:26:38 [info]: Configuring route: /v1/categories -> http://localhost:3004 (Auth: false)
+2025-12-24 14:26:38 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-24 14:26:38 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-24 14:26:38 [info]: 🚀 API Gateway started successfully
+2025-12-24 14:26:38 [info]: 📍 Environment: development
+2025-12-24 14:26:38 [info]: 🌐 Port: 3000
+2025-12-24 14:26:38 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-24 14:26:38 [info]: 📊 Redis: Disabled
+2025-12-24 14:26:38 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-24 14:26:38 [info]: ✅ Ready to handle requests
+2025-12-24 14:27:33 [info]: Redis disabled, using in-memory rate limiting
+2025-12-24 14:27:33 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-24 14:27:33 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-24 14:27:33 [info]: Configuring route: /v1/laptops -> http://localhost:3004 (Auth: false)
+2025-12-24 14:27:33 [info]: Configuring route: /v1/categories -> http://localhost:3004 (Auth: false)
+2025-12-24 14:27:33 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-24 14:27:33 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-24 14:27:33 [info]: 🚀 API Gateway started successfully
+2025-12-24 14:27:33 [info]: 📍 Environment: development
+2025-12-24 14:27:33 [info]: 🌐 Port: 3000
+2025-12-24 14:27:33 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-24 14:27:33 [info]: 📊 Redis: Disabled
+2025-12-24 14:27:33 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-24 14:27:33 [info]: ✅ Ready to handle requests
+2025-12-24 14:27:56 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d82
+2025-12-24 14:27:56 [info]: GET /v1/laptops
+2025-12-24 14:28:32 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9dab
+2025-12-24 14:28:33 [info]: GET /v1/laptops
+2025-12-24 14:29:00 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9dac
+2025-12-24 14:29:00 [info]: GET /v1/laptops
+2025-12-24 14:29:08 [info]: GET /v1/laptops
+2025-12-24 14:29:08 [info]: GET /v1/categories/brands
+2025-12-24 14:29:08 [info]: GET /v1/categories/laptop-categories
+2025-12-24 14:29:12 [info]: GET /v1/laptops
+2025-12-24 14:29:12 [info]: GET /v1/categories/brands
+2025-12-24 14:29:12 [info]: GET /v1/categories/laptop-categories
+2025-12-24 14:30:28 [info]: SIGTERM received, starting graceful shutdown...
+2025-12-24 14:30:28 [info]: HTTP server closed
+2025-12-24 14:30:29 [info]: Shutdown complete, exiting process
