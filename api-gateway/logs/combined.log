@@ -891,3 +891,259 @@
 2025-12-24 11:55:50 [info]: GET /v1/laptops
 2025-12-24 11:55:50 [info]: GET /v1/categories/brands
 2025-12-24 11:55:50 [info]: GET /v1/categories/laptop-categories
+2025-12-24 11:57:03 [info]: GET /v1/laptops
+2025-12-24 11:57:03 [info]: GET /v1/categories/brands
+2025-12-24 11:57:03 [info]: GET /v1/categories/laptop-categories
+2025-12-24 11:57:29 [info]: POST /v1/auth/login
+2025-12-24 11:57:29 [info]: GET /v1/cart
+2025-12-24 11:57:37 [info]: GET /v1/auth/refresh
+2025-12-24 11:57:37 [info]: GET /v1/laptops
+2025-12-24 11:57:37 [info]: GET /v1/categories/brands
+2025-12-24 11:57:37 [info]: GET /v1/categories/laptop-categories
+2025-12-24 11:57:38 [info]: GET /v1/cart
+2025-12-24 11:58:19 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d82
+2025-12-24 11:58:19 [info]: GET /v1/laptops
+2025-12-24 11:58:59 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d84
+2025-12-24 11:58:59 [info]: GET /v1/laptops
+2025-12-24 11:59:15 [info]: GET /v1/auth/refresh
+2025-12-24 11:59:15 [info]: GET /v1/laptops
+2025-12-24 11:59:15 [info]: GET /v1/categories/brands
+2025-12-24 11:59:15 [info]: GET /v1/categories/laptop-categories
+2025-12-24 11:59:15 [info]: GET /v1/cart
+2025-12-24 11:59:28 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d84
+2025-12-24 11:59:28 [info]: GET /v1/laptops
+2025-12-24 12:01:02 [info]: GET /v1/auth/refresh
+2025-12-24 12:01:02 [info]: GET /v1/laptops
+2025-12-24 12:01:02 [info]: GET /v1/categories/brands
+2025-12-24 12:01:02 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:01:02 [info]: GET /v1/cart
+2025-12-24 12:01:02 [info]: GET /v1/auth/refresh
+2025-12-24 12:01:02 [info]: GET /v1/laptops
+2025-12-24 12:01:02 [info]: GET /v1/categories/brands
+2025-12-24 12:01:02 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:01:02 [info]: GET /v1/cart
+2025-12-24 12:01:10 [info]: GET /v1/laptops
+2025-12-24 12:01:10 [info]: GET /v1/categories/brands
+2025-12-24 12:01:10 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:01:10 [info]: GET /v1/categories/brands
+2025-12-24 12:01:10 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:01:10 [info]: GET /v1/laptops
+2025-12-24 12:01:44 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d85
+2025-12-24 12:01:44 [info]: GET /v1/laptops
+2025-12-24 12:02:04 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d86
+2025-12-24 12:02:04 [info]: GET /v1/laptops
+2025-12-24 12:03:07 [info]: GET /v1/auth/refresh
+2025-12-24 12:03:07 [info]: GET /v1/laptops
+2025-12-24 12:03:07 [info]: GET /v1/categories/brands
+2025-12-24 12:03:07 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:07 [info]: GET /v1/cart
+2025-12-24 12:03:08 [info]: GET /v1/auth/refresh
+2025-12-24 12:03:08 [info]: GET /v1/laptops
+2025-12-24 12:03:08 [info]: GET /v1/categories/brands
+2025-12-24 12:03:08 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:08 [info]: GET /v1/cart
+2025-12-24 12:03:13 [info]: GET /v1/auth/refresh
+2025-12-24 12:03:13 [info]: GET /v1/laptops
+2025-12-24 12:03:13 [info]: GET /v1/categories/brands
+2025-12-24 12:03:13 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:13 [info]: GET /v1/cart
+2025-12-24 12:03:14 [info]: GET /v1/auth/refresh
+2025-12-24 12:03:14 [info]: GET /v1/laptops
+2025-12-24 12:03:14 [info]: GET /v1/categories/brands
+2025-12-24 12:03:14 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:14 [info]: GET /v1/cart
+2025-12-24 12:03:21 [info]: GET /v1/laptops
+2025-12-24 12:03:21 [info]: GET /v1/categories/brands
+2025-12-24 12:03:21 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:21 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:03:21 [info]: GET /v1/categories/brands
+2025-12-24 12:03:21 [info]: GET /v1/laptops
+2025-12-24 12:03:41 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d87
+2025-12-24 12:03:41 [info]: GET /v1/laptops
+2025-12-24 12:03:57 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d88
+2025-12-24 12:03:57 [info]: GET /v1/laptops
+2025-12-24 12:04:15 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d89
+2025-12-24 12:04:15 [info]: GET /v1/laptops
+2025-12-24 12:04:31 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d8a
+2025-12-24 12:04:31 [info]: GET /v1/laptops
+2025-12-24 12:04:48 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d8b
+2025-12-24 12:04:48 [info]: GET /v1/laptops
+2025-12-24 12:05:06 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d8c
+2025-12-24 12:05:06 [info]: GET /v1/laptops
+2025-12-24 12:05:27 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d8e
+2025-12-24 12:05:27 [info]: GET /v1/laptops
+2025-12-24 12:05:30 [info]: GET /v1/auth/refresh
+2025-12-24 12:05:30 [info]: GET /v1/laptops
+2025-12-24 12:05:30 [info]: GET /v1/categories/brands
+2025-12-24 12:05:30 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:05:30 [info]: GET /v1/cart
+2025-12-24 12:05:50 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d8f
+2025-12-24 12:05:50 [info]: GET /v1/laptops
+2025-12-24 12:06:05 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d90
+2025-12-24 12:06:05 [info]: GET /v1/laptops
+2025-12-24 12:06:38 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d92
+2025-12-24 12:06:38 [info]: GET /v1/laptops
+2025-12-24 12:06:38 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:06:52 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d91
+2025-12-24 12:06:52 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:06:58 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d91
+2025-12-24 12:06:58 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:09 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d92
+2025-12-24 12:07:09 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:15 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d91
+2025-12-24 12:07:15 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:18 [info]: GET /v1/auth/refresh
+2025-12-24 12:07:18 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:18 [info]: GET /v1/laptops
+2025-12-24 12:07:18 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:18 [info]: GET /v1/categories/brands
+2025-12-24 12:07:18 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:18 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:07:18 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:22 [info]: GET /v1/laptops
+2025-12-24 12:07:22 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:22 [info]: GET /v1/laptops
+2025-12-24 12:07:22 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:49 [info]: Redis disabled, using in-memory rate limiting
+2025-12-24 12:07:49 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-24 12:07:49 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-24 12:07:49 [info]: Configuring route: /v1/laptops -> http://localhost:3004 (Auth: false)
+2025-12-24 12:07:49 [info]: Configuring route: /v1/categories -> http://localhost:3004 (Auth: false)
+2025-12-24 12:07:49 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-24 12:07:49 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-24 12:07:49 [info]: 🚀 API Gateway started successfully
+2025-12-24 12:07:49 [info]: 📍 Environment: development
+2025-12-24 12:07:49 [info]: 🌐 Port: 3000
+2025-12-24 12:07:49 [info]: 🔒 CORS Origin: http://localhost:4200
+2025-12-24 12:07:49 [info]: 📊 Redis: Disabled
+2025-12-24 12:07:49 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-24 12:07:49 [info]: ✅ Ready to handle requests
+2025-12-24 12:07:53 [info]: GET /v1/laptops
+2025-12-24 12:07:53 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:53 [info]: GET /v1/laptops
+2025-12-24 12:07:53 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:54 [info]: GET /v1/laptops
+2025-12-24 12:07:54 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:54 [info]: GET /v1/laptops
+2025-12-24 12:07:54 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:54 [info]: GET /v1/laptops
+2025-12-24 12:07:54 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:54 [info]: GET /v1/laptops
+2025-12-24 12:07:54 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:54 [info]: GET /v1/laptops
+2025-12-24 12:07:54 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:56 [info]: GET /v1/laptops
+2025-12-24 12:07:56 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:56 [info]: GET /v1/laptops
+2025-12-24 12:07:56 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:56 [info]: GET /v1/laptops
+2025-12-24 12:07:56 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:56 [info]: GET /v1/laptops
+2025-12-24 12:07:56 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:07:57 [info]: GET /v1/laptops
+2025-12-24 12:07:57 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:08:13 [info]: GET /v1/laptops
+2025-12-24 12:08:13 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:08:13 [info]: GET /v1/laptops
+2025-12-24 12:08:13 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:08:14 [info]: GET /v1/laptops
+2025-12-24 12:08:14 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:03 [info]: GET /v1/laptops
+2025-12-24 12:09:03 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:04 [info]: GET /v1/laptops
+2025-12-24 12:09:04 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:17 [info]: GET /v1/laptops
+2025-12-24 12:09:17 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:17 [info]: GET /v1/categories/brands
+2025-12-24 12:09:17 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:17 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:09:17 [warn]: Rate limit exceeded for IP: ::1
+2025-12-24 12:09:32 [info]: GET /v1/laptops
+2025-12-24 12:09:52 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d91
+2025-12-24 12:09:52 [info]: GET /v1/laptops
+2025-12-24 12:10:26 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d92
+2025-12-24 12:10:27 [info]: GET /v1/laptops
+2025-12-24 12:10:51 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d93
+2025-12-24 12:10:51 [info]: GET /v1/laptops
+2025-12-24 12:11:12 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d94
+2025-12-24 12:11:13 [info]: GET /v1/laptops
+2025-12-24 12:12:54 [info]: GET /v1/laptops
+2025-12-24 12:12:54 [info]: GET /v1/categories/brands
+2025-12-24 12:12:54 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:13:36 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d92
+2025-12-24 12:13:36 [info]: GET /v1/laptops
+2025-12-24 12:13:44 [info]: GET /v1/laptops
+2025-12-24 12:13:44 [info]: GET /v1/categories/brands
+2025-12-24 12:13:44 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:17:10 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d95
+2025-12-24 12:17:10 [info]: GET /v1/laptops
+2025-12-24 12:17:18 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d96
+2025-12-24 12:17:18 [info]: GET /v1/laptops
+2025-12-24 12:17:29 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d95
+2025-12-24 12:17:29 [info]: GET /v1/laptops
+2025-12-24 12:18:05 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d97
+2025-12-24 12:18:05 [info]: GET /v1/laptops
+2025-12-24 12:18:23 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d98
+2025-12-24 12:18:23 [info]: GET /v1/laptops
+2025-12-24 12:18:38 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d99
+2025-12-24 12:18:38 [info]: GET /v1/laptops
+2025-12-24 12:19:04 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9a
+2025-12-24 12:19:04 [info]: GET /v1/laptops
+2025-12-24 12:19:42 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9b
+2025-12-24 12:19:42 [info]: GET /v1/laptops
+2025-12-24 12:20:02 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9c
+2025-12-24 12:20:02 [info]: GET /v1/laptops
+2025-12-24 12:20:36 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9d
+2025-12-24 12:20:36 [info]: GET /v1/laptops
+2025-12-24 12:20:53 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9e
+2025-12-24 12:20:54 [info]: GET /v1/laptops
+2025-12-24 12:21:12 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9d9f
+2025-12-24 12:21:12 [info]: GET /v1/laptops
+2025-12-24 12:21:26 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da0
+2025-12-24 12:21:26 [info]: GET /v1/laptops
+2025-12-24 12:21:41 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da1
+2025-12-24 12:21:41 [info]: GET /v1/laptops
+2025-12-24 12:21:57 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da2
+2025-12-24 12:21:57 [info]: GET /v1/laptops
+2025-12-24 12:22:19 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da3
+2025-12-24 12:22:19 [info]: GET /v1/laptops
+2025-12-24 12:22:39 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da4
+2025-12-24 12:22:39 [info]: GET /v1/laptops
+2025-12-24 12:22:53 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da5
+2025-12-24 12:22:54 [info]: GET /v1/laptops
+2025-12-24 12:23:09 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da6
+2025-12-24 12:23:09 [info]: GET /v1/laptops
+2025-12-24 12:23:24 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da7
+2025-12-24 12:23:25 [info]: GET /v1/laptops
+2025-12-24 12:23:44 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da8
+2025-12-24 12:23:45 [info]: GET /v1/laptops
+2025-12-24 12:24:11 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9da9
+2025-12-24 12:24:11 [info]: GET /v1/laptops
+2025-12-24 12:24:28 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9daa
+2025-12-24 12:24:29 [info]: GET /v1/laptops
+2025-12-24 12:24:43 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9dad
+2025-12-24 12:24:43 [info]: GET /v1/laptops
+2025-12-24 12:24:56 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9dae
+2025-12-24 12:24:56 [info]: GET /v1/laptops
+2025-12-24 12:25:10 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9daf
+2025-12-24 12:25:11 [info]: GET /v1/laptops
+2025-12-24 12:25:24 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db0
+2025-12-24 12:25:24 [info]: GET /v1/laptops
+2025-12-24 12:25:39 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db1
+2025-12-24 12:25:40 [info]: GET /v1/laptops
+2025-12-24 12:26:10 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db2
+2025-12-24 12:26:11 [info]: GET /v1/laptops
+2025-12-24 12:26:29 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db3
+2025-12-24 12:26:29 [info]: GET /v1/laptops
+2025-12-24 12:26:51 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db4
+2025-12-24 12:26:51 [info]: GET /v1/laptops
+2025-12-24 12:27:05 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db5
+2025-12-24 12:27:05 [info]: GET /v1/laptops
+2025-12-24 12:27:20 [info]: PUT /v1/laptops/694b6e9db3b980b9a35c9db6
+2025-12-24 12:27:20 [info]: GET /v1/laptops
+2025-12-24 12:27:27 [info]: GET /v1/laptops
+2025-12-24 12:27:27 [info]: GET /v1/categories/brands
+2025-12-24 12:27:27 [info]: GET /v1/categories/laptop-categories
+2025-12-24 12:27:49 [info]: GET /v1/laptops
+2025-12-24 12:27:49 [info]: GET /v1/categories/brands
+2025-12-24 12:27:49 [info]: GET /v1/categories/laptop-categories
