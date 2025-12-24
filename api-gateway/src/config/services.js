@@ -54,6 +54,12 @@ export const routeConfig = [
     description: "Laptop catalog endpoints",
   },
   {
+    path: "/v1/categories",
+    service: services.laptops,
+    requiresAuth: false,
+    description: "Category and brand management endpoints",
+  },
+  {
     path: "/v1/cart",
     service: services.cart,
     requiresAuth: true,

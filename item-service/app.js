@@ -4,6 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import swaggerUi from "swagger-ui-express";
 import laptopRoutes from "./src/routes/laptop.routes.js";
+import categoryRoutes from "./src/routes/category.routes.js";
 import { swaggerSpec } from "./src/config/swagger.js";
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.get("/api-docs.json", (req, res) => {
 });
 
 app.use("/api/laptops", laptopRoutes);
+app.use("/api/categories", categoryRoutes);
 app.get("/health", (req, res) => res.json({ status: "UP" }));
 
 mongoose
