@@ -2,6 +2,9 @@ import User from "../models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
+const cookieSameSite = process.env.NODE_ENV === "production" ? "None" : "Lax";
+const cookieSecure = process.env.NODE_ENV === "production";
+
 export const signup = async (req, res) => {
   const { username, email, password } = req.body;
 
@@ -35,15 +38,15 @@ export const signup = async (req, res) => {
     // Set cookies
     res.cookie("token", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: cookieSecure,
+      sameSite: cookieSameSite,
       maxAge: 60 * 60 * 1000,
     });
 
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: cookieSecure,
+      sameSite: cookieSameSite,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -89,16 +92,16 @@ export const login = async (req, res) => {
     // Set access token in HTTP-only cookie
     res.cookie("token", accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: cookieSecure,
+      sameSite: cookieSameSite,
       maxAge: 60 * 60 * 1000,
     });
 
     // Set refresh token in HTTP-only cookie
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "Lax",
+      secure: cookieSecure,
+      sameSite: cookieSameSite,
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -124,13 +127,13 @@ export const logout = async (req, res) => {
 
     res.clearCookie("token", {
       httpOnly: true,
-      sameSite: "Lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: cookieSameSite,
+      secure: cookieSecure,
     });
     res.clearCookie("refreshToken", {
       httpOnly: true,
-      sameSite: "Lax",
-      secure: process.env.NODE_ENV === "production",
+      sameSite: cookieSameSite,
+      secure: cookieSecure,
     });
     res.sendStatus(204);
   } catch (error) {

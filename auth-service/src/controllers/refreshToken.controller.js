@@ -1,6 +1,9 @@
 import jwt from "jsonwebtoken";
 import User from "../models/user.model.js";
 
+const cookieSameSite = process.env.NODE_ENV === "production" ? "None" : "Lax";
+const cookieSecure = process.env.NODE_ENV === "production";
+
 export const refreshToken = async (req, res) => {
   try {
     const token = req.cookies.refreshToken;
@@ -46,8 +49,8 @@ export const refreshToken = async (req, res) => {
       // Set access token in HTTP-only cookie
       res.cookie("token", accessToken, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "Lax",
+        secure: cookieSecure,
+        sameSite: cookieSameSite,
         maxAge: 60 * 60 * 1000, // 1 hour
       });
 

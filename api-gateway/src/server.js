@@ -129,8 +129,25 @@ app.use(
 );
 
 // CORS configuration
+const corsOriginRaw = process.env.CORS_ORIGIN || "http://localhost:4200";
+const allowedOrigins = corsOriginRaw
+  .split(",")
+  .map((o) => o.trim())
+  .filter(Boolean);
+
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || "http://localhost:4200",
+  origin: (origin, callback) => {
+    // Allow non-browser requests (no Origin header), e.g. curl/health checks
+    if (!origin) return callback(null, true);
+
+    // Support wildcard via env: CORS_ORIGIN="*"
+    if (allowedOrigins.includes("*")) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+
+    logger.warn(`CORS blocked for origin: ${origin}`);
+    return callback(null, false);
+  },
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
   allowedHeaders: [

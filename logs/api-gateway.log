@@ -1,15 +1,15 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
-2025-12-25 20:28:08 [[32minfo[39m]: Redis disabled, using in-memory rate limiting
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/laptops -> http://localhost:3000 (Auth: false)
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/categories -> http://localhost:3000 (Auth: false)
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
-2025-12-25 20:28:08 [[32minfo[39m]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
-2025-12-25 20:28:08 [[32minfo[39m]: 🚀 API Gateway started successfully
-2025-12-25 20:28:08 [[32minfo[39m]: 📍 Environment: development
-2025-12-25 20:28:08 [[32minfo[39m]: 🌐 Port: 3000
-2025-12-25 20:28:08 [[32minfo[39m]: 🔒 CORS Origin: http://localhost:4200
-2025-12-25 20:28:08 [[32minfo[39m]: 📊 Redis: Disabled
-2025-12-25 20:28:08 [[32minfo[39m]: 🛡️  Rate Limiting: Enabled
-2025-12-25 20:28:08 [[32minfo[39m]: ✅ Ready to handle requests
+[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+2025-12-25 21:58:32 [[32minfo[39m]: Redis disabled, using in-memory rate limiting
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/laptops -> http://localhost:3000 (Auth: false)
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/categories -> http://localhost:3000 (Auth: false)
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-25 21:58:32 [[32minfo[39m]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-25 21:58:32 [[32minfo[39m]: 🚀 API Gateway started successfully
+2025-12-25 21:58:32 [[32minfo[39m]: 📍 Environment: development
+2025-12-25 21:58:32 [[32minfo[39m]: 🌐 Port: 3000
+2025-12-25 21:58:32 [[32minfo[39m]: 🔒 CORS Origin: http://localhost:4200
+2025-12-25 21:58:32 [[32minfo[39m]: 📊 Redis: Disabled
+2025-12-25 21:58:32 [[32minfo[39m]: 🛡️  Rate Limiting: Enabled
+2025-12-25 21:58:32 [[32minfo[39m]: ✅ Ready to handle requests

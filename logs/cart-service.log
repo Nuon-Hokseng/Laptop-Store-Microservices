@@ -1,3 +1,4 @@
-[dotenv@17.2.3] injecting env (7) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (6) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
 MongoDB connected
 Cart Service running on port 3001
+SIGTERM received, shutting down Cart Service gracefully...
