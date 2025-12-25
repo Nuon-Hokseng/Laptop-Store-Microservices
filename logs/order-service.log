@@ -1,20 +1,4 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
 MongoDB connected
 MongoDB connection details => host: ac-dsvknho-shard-00-01.d79ogpy.mongodb.net, db: order-service
 Order Service running on port 3002
-SIGTERM received, shutting down Order Service gracefully...
-connection state: 1
-[getAllOrders] Collection name: orders
-[getAllOrders] Returning 5 orders from DB: [
-  {
-    id: new ObjectId('694b6b2551db4eb485780405'),
-    items: 2,
-    date: 2025-12-24T04:25:09.116Z
-  },
-  {
-    id: new ObjectId('69495740a609b9bea8c5c603'),
-    items: 1,
-    date: 2025-12-22T14:35:44.987Z
-  }
-]
-SIGTERM received, shutting down Order Service gracefully...

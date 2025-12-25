@@ -12,7 +12,7 @@ const services = {
     url:
       process.env.LAPTOP_SERVICE_URL ||
       process.env.BOOK_SERVICE_URL ||
-      "http://localhost:3004",
+      "http://localhost:3000",
     healthCheck: "/health",
     requiresAuth: false,
     description: "Laptop catalog and management service",
