@@ -82,6 +82,12 @@ export const routeConfig = [
     requiresAuth: false,
     description: "Order admin subroutes (all orders, status updates)",
   },
+   {
+    path: "/v1/laptops",
+    service: services.laptops,
+    requiresAuth: false,
+    description: "Laptop catalog endpoints",
+  },
   {
     path: "/v1/orders",
     service: services.orders,
