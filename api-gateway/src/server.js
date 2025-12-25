@@ -135,6 +135,13 @@ const allowedOrigins = corsOriginRaw
   .map((o) => o.trim())
   .filter(Boolean);
 
+logger.info(`🔧 CORS_ORIGIN raw: ${corsOriginRaw}`);
+logger.info(
+  `🔧 CORS allowed origins: ${
+    allowedOrigins.length ? allowedOrigins.join(", ") : "(none)"
+  }`
+);
+
 const corsOptions = {
   origin: (origin, callback) => {
     // Allow non-browser requests (no Origin header), e.g. curl/health checks
@@ -263,7 +270,11 @@ const server = app.listen(PORT, () => {
   logger.info(`🚀 API Gateway started successfully`);
   logger.info(`📍 Environment: ${NODE_ENV}`);
   logger.info(`🌐 Port: ${PORT}`);
-  logger.info(`🔒 CORS Origin: ${corsOptions.origin}`);
+  logger.info(
+    `🔒 CORS Origin(s): ${
+      allowedOrigins.length ? allowedOrigins.join(", ") : "(none)"
+    }`
+  );
   logger.info(`📊 Redis: ${redisClient ? "Enabled" : "Disabled"}`);
   logger.info(`🛡️  Rate Limiting: ${rateLimiter ? "Enabled" : "Disabled"}`);
   logger.info(`✅ Ready to handle requests`);
