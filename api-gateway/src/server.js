@@ -237,7 +237,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle preflight requests early (avoid proxying OPTIONS to upstream services)
-app.options("*", cors(corsOptions), (_req, res) => res.sendStatus(204));
+// Express 5 (path-to-regexp v6) does not accept "*" as a route pattern.
+app.options(/.*/, cors(corsOptions), (_req, res) => res.sendStatus(204));
 
 // Compression
 app.use(compression());

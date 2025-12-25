@@ -1260,3 +1260,4 @@
 2025-12-25 21:58:32 [info]: 📊 Redis: Disabled
 2025-12-25 21:58:32 [info]: 🛡️  Rate Limiting: Enabled
 2025-12-25 21:58:32 [info]: ✅ Ready to handle requests
+2025-12-25 22:53:15 [info]: Redis disabled, using in-memory rate limiting
