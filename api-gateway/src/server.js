@@ -130,10 +130,82 @@ app.use(
 
 // CORS configuration
 const corsOriginRaw = process.env.CORS_ORIGIN || "http://localhost:4200";
+
+const normalizeCorsOriginToken = (token) => {
+  if (!token) return "";
+  let value = String(token).trim();
+
+  // Guard against common misconfiguration where the value itself contains `CORS_ORIGIN=`
+  // (e.g. user pastes `CORS_ORIGIN=...` into Render's value field)
+  const marker = "CORS_ORIGIN=";
+  if (value.includes(marker)) {
+    value = value.split(marker).pop().trim();
+  }
+
+  // Strip trailing slash for consistent comparisons
+  value = value.replace(/\/+$/, "");
+  return value;
+};
+
 const allowedOrigins = corsOriginRaw
   .split(",")
-  .map((o) => o.trim())
+  .map(normalizeCorsOriginToken)
   .filter(Boolean);
+
+const isOriginAllowed = (origin) => {
+  if (!origin) return true;
+  const normalizedOrigin = normalizeCorsOriginToken(origin);
+
+  // Allow all (not recommended with credentials)
+  if (allowedOrigins.includes("*")) return true;
+
+  // Fast path: exact match
+  if (allowedOrigins.includes(normalizedOrigin)) return true;
+
+  let originUrl;
+  try {
+    originUrl = new URL(normalizedOrigin);
+  } catch {
+    return false;
+  }
+
+  const originHost = originUrl.hostname;
+  const originProtocol = originUrl.protocol;
+
+  for (const entry of allowedOrigins) {
+    if (!entry) continue;
+
+    // Hostname-only entry (e.g. `kalipto-tech-store.vercel.app`)
+    if (!entry.includes("://") && !entry.startsWith("*")) {
+      if (originHost === entry) return true;
+      continue;
+    }
+
+    // Wildcard hostname entry (e.g. `*.vercel.app`)
+    if (entry.startsWith("*.") && originHost.endsWith(entry.slice(1))) {
+      return true;
+    }
+
+    // Wildcard full origin entry (e.g. `https://*.vercel.app`)
+    if (entry.includes("://") && entry.includes("*")) {
+      try {
+        const [scheme, hostPart] = entry.split("://");
+        const wantedProtocol = `${scheme}:`;
+        const wildcardHost = hostPart.replace(/^\*\./, ".");
+        if (
+          originProtocol === wantedProtocol &&
+          originHost.endsWith(wildcardHost)
+        ) {
+          return true;
+        }
+      } catch {
+        // ignore malformed entry
+      }
+    }
+  }
+
+  return false;
+};
 
 logger.info(`🔧 CORS_ORIGIN raw: ${corsOriginRaw}`);
 logger.info(
@@ -147,10 +219,7 @@ const corsOptions = {
     // Allow non-browser requests (no Origin header), e.g. curl/health checks
     if (!origin) return callback(null, true);
 
-    // Support wildcard via env: CORS_ORIGIN="*"
-    if (allowedOrigins.includes("*")) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) return callback(null, true);
+    if (isOriginAllowed(origin)) return callback(null, true);
 
     logger.warn(`CORS blocked for origin: ${origin}`);
     return callback(null, false);
@@ -166,6 +235,9 @@ const corsOptions = {
   exposedHeaders: ["Set-Cookie"],
 };
 app.use(cors(corsOptions));
+
+// Handle preflight requests early (avoid proxying OPTIONS to upstream services)
+app.options("*", cors(corsOptions), (_req, res) => res.sendStatus(204));
 
 // Compression
 app.use(compression());
