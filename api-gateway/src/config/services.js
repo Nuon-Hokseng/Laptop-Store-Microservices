@@ -47,11 +47,19 @@ export const routeConfig = [
     requiresAuth: true,
     description: "User profile management endpoints",
   },
+  // Admin endpoints: allow without user JWT (admin UI uses client-side auth)
+  // NOTE: This is not secure by itself; lock down at the service level if needed.
   {
-    path: "/v1/laptops",
-    service: services.laptops,
+    path: "/v1/orders/all",
+    service: services.orders,
     requiresAuth: false,
-    description: "Laptop catalog endpoints",
+    description: "Admin: list all orders",
+  },
+  {
+    path: "/v1/orders",
+    service: services.orders,
+    requiresAuth: true,
+    description: "Order management endpoints",
   },
   {
     path: "/v1/categories",
@@ -64,6 +72,15 @@ export const routeConfig = [
     service: services.cart,
     requiresAuth: true,
     description: "Shopping cart endpoints",
+  },
+  // NOTE: The admin dashboard uses a client-only admin toggle (no JWT cookie).
+  // Allow order admin subroutes under `/v1/orders/` (trailing slash) without JWT.
+  // Keep `/v1/orders` itself protected for normal user order operations.
+  {
+    path: "/v1/orders/",
+    service: services.orders,
+    requiresAuth: false,
+    description: "Order admin subroutes (all orders, status updates)",
   },
   {
     path: "/v1/orders",

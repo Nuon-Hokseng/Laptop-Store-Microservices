@@ -8,6 +8,12 @@ const cartItemSchema = new mongoose.Schema(
       ref: "laptop",
       required: true,
     },
+    // Snapshot fields (so cart still renders if laptop-service is cold/unreachable)
+    unitPrice: { type: Number, default: 0, min: 0 },
+    brand: { type: String, default: "" },
+    model: { type: String, default: "" },
+    category: { type: String, default: "" },
+    image_url: { type: String, default: "" },
     quantity: { type: Number, default: 1, min: 1 },
   },
   { timestamps: true }

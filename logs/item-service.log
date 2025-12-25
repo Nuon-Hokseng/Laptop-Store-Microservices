@@ -1,4 +1,3 @@
-[dotenv@17.2.3] injecting env (2) from .env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (2) from .env -- tip: ⚙️  override existing env vars with { override: true }
 MongoDB connected
 Laptop Service running on port 3004
-SIGTERM received, shutting down Laptop Service gracefully...

@@ -1,5 +1,4 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.2.3] injecting env (6) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
 MongoDB connected
-MongoDB connection details => host: ac-dsvknho-shard-00-02.d79ogpy.mongodb.net, db: order-service
+MongoDB connection details => host: ac-dsvknho-shard-00-01.d79ogpy.mongodb.net, db: order-service
 Order Service running on port 3002
-SIGTERM received, shutting down Order Service gracefully...
