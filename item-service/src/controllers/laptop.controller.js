@@ -15,8 +15,24 @@ const mapLaptop = (doc) => ({
 export const getAllLaptops = async (_req, res) => {
   try {
     const laptops = await Laptop.find().lean();
+    console.log(`[Laptop Controller] Returning ${laptops.length} laptops`);
+
+    if (laptops.length === 0) {
+      console.warn(
+        "[Laptop Controller] No laptops found in database. Run seed script!"
+      );
+    } else {
+      console.log(
+        `[Laptop Controller] Sample laptop IDs: ${laptops
+          .slice(0, 3)
+          .map((l) => l._id)
+          .join(", ")}`
+      );
+    }
+
     res.json(laptops.map(mapLaptop));
   } catch (error) {
+    console.error("[Laptop Controller] Error fetching laptops:", error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -70,12 +86,46 @@ export const getLaptopsByCategory = async (req, res) => {
 export const getLaptopDetail = async (req, res) => {
   try {
     const id = req.params.id?.trim();
+
+    console.log(`[Laptop Controller] Fetching laptop with ID: ${id}`);
+
+    // Validate MongoDB ObjectId format
+    if (!id || !id.match(/^[0-9a-fA-F]{24}$/)) {
+      console.warn(`[Laptop Controller] Invalid laptop ID format: ${id}`);
+      return res.status(400).json({
+        message: "Invalid laptop ID format",
+        providedId: id,
+      });
+    }
+
     const laptop = await Laptop.findById(id).lean();
 
-    if (!laptop) return res.status(404).json({ message: "Laptop not found" });
+    if (!laptop) {
+      console.warn(`[Laptop Controller] Laptop not found: ${id}`);
 
+      // Provide helpful debugging info
+      const totalLaptops = await Laptop.countDocuments();
+      console.log(
+        `[Laptop Controller] Total laptops in database: ${totalLaptops}`
+      );
+
+      return res.status(404).json({
+        message: "Laptop not found",
+        providedId: id,
+        totalLaptopsInDatabase: totalLaptops,
+        hint:
+          totalLaptops === 0
+            ? "Database appears empty. Run the seed script: npm run seed"
+            : "The laptop ID you provided does not exist in the database",
+      });
+    }
+
+    console.log(
+      `[Laptop Controller] Successfully found laptop: ${laptop.Brand} ${laptop.Model}`
+    );
     res.json(mapLaptop(laptop));
   } catch (error) {
+    console.error(`[Laptop Controller] Error fetching laptop:`, error);
     res.status(500).json({ message: error.message });
   }
 };
