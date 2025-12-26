@@ -7,6 +7,7 @@ import {
   createLaptop,
   updateLaptop,
   deleteLaptop,
+  seedDemoLaptops,
 } from "../controllers/laptop.controller.js";
 
 const router = express.Router();
@@ -161,5 +162,9 @@ router.put("/:id", updateLaptop);
  *         description: Laptop deleted successfully
  */
 router.delete("/:id", deleteLaptop);
+
+// Development-only: guarded seed endpoint
+// Enable by setting ENABLE_SEED_ENDPOINT=true and provide X-Admin-Token header
+router.post("/seed", seedDemoLaptops);
 
 export default router;

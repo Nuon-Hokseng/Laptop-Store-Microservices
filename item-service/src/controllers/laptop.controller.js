@@ -135,6 +135,114 @@ export const createLaptop = async (req, res) => {
     const { Brand, Model, Spec, price, category, description, image_url } =
       req.body;
 
+    // Guarded seed endpoint to populate demo laptops via HTTP (development use only)
+    export const seedDemoLaptops = async (req, res) => {
+      try {
+        const enabled = process.env.ENABLE_SEED_ENDPOINT === "true";
+        const adminToken = process.env.SEED_ADMIN_TOKEN || "";
+        const provided =
+          req.get("X-Admin-Token") || req.get("x-admin-token") || "";
+
+        if (!enabled) {
+          return res.status(403).json({
+            message:
+              "Seed endpoint disabled. Set ENABLE_SEED_ENDPOINT=true to enable",
+          });
+        }
+
+        if (!adminToken || provided !== adminToken) {
+          return res.status(403).json({
+            message: "Forbidden: invalid admin token",
+          });
+        }
+
+        const demoLaptops = [
+          {
+            Brand: "Apple",
+            Model: "MacBook Pro 14",
+            Spec: "M3 Pro, 16GB RAM, 512GB SSD",
+            category: "Creator",
+            description: "Powerful creator laptop with stellar battery life.",
+            image_url:
+              "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/mbp14-spacegray-select-202310?wid=2000&hei=2000&fmt=jpeg&qlt=95&.v=1696987339082",
+            price: 1999,
+          },
+          {
+            Brand: "Dell",
+            Model: "XPS 13 Plus",
+            Spec: "Intel i7, 16GB RAM, 1TB SSD",
+            category: "Ultrabook",
+            description: "Premium thin-and-light with InfinityEdge display.",
+            image_url:
+              "https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/page/category/laptop/xps-13-9315-t-gray-cn-800x620.png",
+            price: 1799,
+          },
+          {
+            Brand: "Lenovo",
+            Model: "ThinkPad X1 Carbon",
+            Spec: "Intel i7, 32GB RAM, 1TB SSD",
+            category: "Business",
+            description: "Lightweight business laptop with legendary keyboard.",
+            image_url:
+              "https://www.lenovo.com/medias/lenovo-laptop-thinkpad-x1-carbon-gen10.png",
+            price: 1899,
+          },
+          {
+            Brand: "ASUS",
+            Model: "ROG Zephyrus G14",
+            Spec: "AMD Ryzen 9, RTX 4060, 16GB RAM, 1TB SSD",
+            category: "Gaming",
+            description: "Compact gaming powerhouse with high refresh display.",
+            image_url:
+              "https://dlcdnwebimgs.asus.com/gain/8ef84b6f-062b-42f1-98c8-6f4595fe2c24/",
+            price: 1699,
+          },
+          {
+            Brand: "HP",
+            Model: "Spectre x360 14",
+            Spec: "Intel i7, 16GB RAM, 512GB SSD",
+            category: "2-in-1",
+            description: "Convertible with OLED display and premium build.",
+            image_url:
+              "https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c07965322.png",
+            price: 1599,
+          },
+          {
+            Brand: "Acer",
+            Model: "Swift Go 14",
+            Spec: "Intel i5, 16GB RAM, 512GB SSD",
+            category: "Ultrabook",
+            description: "Lightweight everyday laptop with long battery life.",
+            image_url:
+              "https://static.acer.com/up/Resource/Acer/Notebooks/Swift_Go_14/Images/20230529/Swift_Go_14_SFG14-42_Fingerprint_modelmain.png",
+            price: 1099,
+          },
+        ];
+
+        const { reset } = req.query;
+        if (reset === "true") {
+          await Laptop.deleteMany({});
+        }
+
+        const count = await Laptop.countDocuments();
+        if (count === 0 || reset === "true") {
+          const inserted = await Laptop.insertMany(demoLaptops);
+          return res.status(201).json({
+            message: "Seeded demo laptops",
+            inserted: inserted.length,
+          });
+        }
+
+        return res.status(200).json({
+          message: "Database already contains laptops",
+          existingCount: count,
+        });
+      } catch (error) {
+        console.error("[Seed Endpoint] Error:", error);
+        res.status(500).json({ message: error.message });
+      }
+    };
+
     if (!Brand || !Model || !Spec || !price || !category) {
       return res.status(400).json({
         message: "Brand, Model, Spec, price, and category are required",
