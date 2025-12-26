@@ -12,7 +12,8 @@ const services = {
     url:
       process.env.LAPTOP_SERVICE_URL ||
       process.env.BOOK_SERVICE_URL ||
-      "http://localhost:3000",
+      // Default to item-service port (3004) instead of gateway (3000) to avoid self-proxy loops
+      "http://localhost:3004",
     healthCheck: "/health",
     requiresAuth: false,
     description: "Laptop catalog and management service",
@@ -82,7 +83,7 @@ export const routeConfig = [
     requiresAuth: false,
     description: "Order admin subroutes (all orders, status updates)",
   },
-   {
+  {
     path: "/v1/laptops",
     service: services.laptops,
     requiresAuth: false,
