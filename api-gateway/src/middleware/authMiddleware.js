@@ -109,6 +109,9 @@ export const optionalAuth = (req, res, next) => {
 
     // If no token, continue without user info
     if (!token) {
+      logger.debug(
+        `Optional auth: No token found for ${req.method} ${req.path}`
+      );
       return next();
     }
 
@@ -125,12 +128,14 @@ export const optionalAuth = (req, res, next) => {
       ...decoded,
     };
 
-    logger.debug(`Optional auth: User authenticated: ${req.user.email}`);
+    logger.debug(
+      `Optional auth: User authenticated for ${req.method} ${req.path}: ${req.user.email}`
+    );
     next();
   } catch (error) {
     // If token is invalid, just continue without user info
     logger.debug(
-      `Optional auth: Invalid or expired token, continuing without auth`
+      `Optional auth: Invalid or expired token for ${req.method} ${req.path}, continuing without auth`
     );
     next();
   }

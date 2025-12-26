@@ -1,11 +1,32 @@
 import proxy from "express-http-proxy";
 import logger from "./logger.js";
+import http from "http";
+import https from "https";
+
+// Create custom HTTP/HTTPS agents with connection pooling
+const httpAgent = new http.Agent({
+  keepAlive: true,
+  keepAliveMsecs: 30000,
+  maxSockets: 50,
+  maxFreeSockets: 10,
+});
+
+const httpsAgent = new https.Agent({
+  keepAlive: true,
+  keepAliveMsecs: 30000,
+  maxSockets: 50,
+  maxFreeSockets: 10,
+});
 
 // Create proxy middleware for routing requests to backend services
 export const createProxy = (serviceUrl, options = {}) => {
+  const agent = serviceUrl.startsWith("https") ? httpsAgent : httpAgent;
+
   return proxy(serviceUrl, {
     preserveHostHdr: false,
     parseReqBody: true,
+    httpAgent: agent,
+    httpsAgent: agent,
 
     proxyReqPathResolver: (req) => {
       const originalPath = req.originalUrl || req.url;
@@ -80,7 +101,7 @@ export const createProxy = (serviceUrl, options = {}) => {
       return proxyResData;
     },
 
-    timeout: options.timeout || 30000,
+    timeout: options.timeout || 60000,
 
     // Additional options
     ...options,

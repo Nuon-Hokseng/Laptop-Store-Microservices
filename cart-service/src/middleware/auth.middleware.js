@@ -1,6 +1,12 @@
 import jwt from "jsonwebtoken";
 
 const authMiddleware = (req, res, next) => {
+  console.log("[Auth Middleware] Checking authentication:", {
+    method: req.method,
+    path: req.path,
+    hasXUserId: !!req.header("x-user-id"),
+  });
+
   // First, check if user context is forwarded from API Gateway
   const userId = req.header("x-user-id");
   const userRole = req.header("x-user-role");
@@ -8,6 +14,10 @@ const authMiddleware = (req, res, next) => {
 
   if (userId) {
     // User context forwarded from API Gateway
+    console.log(
+      "[Auth Middleware] User authenticated via API Gateway headers:",
+      { userId, userRole, userEmail }
+    );
     req.user = {
       id: userId,
       role: userRole || "user",
@@ -29,18 +39,29 @@ const authMiddleware = (req, res, next) => {
     token = req.cookies.token;
   }
 
-  if (!token)
+  if (!token) {
+    console.warn(
+      "[Auth Middleware] Authentication failed: No token provided for",
+      req.method,
+      req.path
+    );
     return res.status(401).json({ error: "No token, authorization denied" });
+  }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET || "your-secret-key-change-in-production"
+    );
     req.user = {
       id: decoded.id || decoded.userId,
       role: decoded.role || "user",
       email: decoded.email || "",
     };
+    console.log("[Auth Middleware] User authenticated via JWT:", req.user.id);
     next();
   } catch (err) {
+    console.error("[Auth Middleware] Token validation failed:", err.message);
     res.status(401).json({ error: "Token is not valid" });
   }
 };
