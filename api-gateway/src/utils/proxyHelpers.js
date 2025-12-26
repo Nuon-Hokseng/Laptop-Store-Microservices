@@ -29,9 +29,24 @@ export const createProxy = (serviceUrl, options = {}) => {
     httpsAgent: agent,
 
     proxyReqPathResolver: (req) => {
-      const originalPath = req.originalUrl || req.url;
-      const newPath = originalPath.replace(/^\/v1\//, "/api/");
-      logger.debug(`Proxying: ${originalPath} -> ${serviceUrl}${newPath}`);
+      // When using app.use("/v1/cart", handler), Express strips the prefix from req.path
+      // but keeps it in req.baseUrl. So we need to reconstruct the full path.
+      // req.baseUrl = "/v1/cart"
+      // req.url = "/add" or "/add?query=value"
+      // We want to convert "/v1/cart/add" to "/api/cart/add"
+
+      const baseUrl = req.baseUrl || "";
+      const pathAndQuery = req.url || "/";
+      const fullPath = baseUrl + pathAndQuery;
+
+      // Replace /v1 with /api
+      const newPath = fullPath.replace(/^\/v1\//, "/api/");
+
+      logger.debug(
+        `Path resolution: baseUrl="${baseUrl}" + url="${pathAndQuery}" = "${fullPath}" -> "${newPath}"`
+      );
+      logger.debug(`Proxying to: ${serviceUrl}${newPath}`);
+
       return newPath;
     },
 
@@ -74,17 +89,41 @@ export const createProxy = (serviceUrl, options = {}) => {
     },
 
     proxyErrorHandler: (err, res, next) => {
-      logger.error(`Proxy error to ${serviceUrl}: ${err.message}`, {
-        error: err,
+      // Log detailed error information
+      logger.error(`Proxy error to ${serviceUrl}:`, {
+        message: err.message,
+        code: err.code,
+        errno: err.errno,
       });
 
       if (res.headersSent) {
+        logger.warn(`Headers already sent, passing to next error handler`);
         return next(err);
       }
 
-      res.status(502).json({
-        error: "Bad Gateway",
-        message: "Failed to connect to upstream service",
+      // Determine appropriate status code based on error type
+      let statusCode = 502;
+      let message = "Failed to connect to upstream service";
+
+      if (err.code === "ECONNREFUSED") {
+        statusCode = 503;
+        message = "Upstream service is unavailable";
+      } else if (err.code === "ETIMEDOUT" || err.code === "ESOCKETTIMEDOUT") {
+        statusCode = 504;
+        message = "Upstream service did not respond in time";
+      } else if (err.code === "ENOTFOUND") {
+        statusCode = 502;
+        message = "Cannot resolve upstream service host";
+      }
+
+      res.status(statusCode).json({
+        error:
+          statusCode === 503
+            ? "Service Unavailable"
+            : statusCode === 504
+            ? "Gateway Timeout"
+            : "Bad Gateway",
+        message: message,
         service: serviceUrl,
       });
     },
@@ -101,7 +140,8 @@ export const createProxy = (serviceUrl, options = {}) => {
       return proxyResData;
     },
 
-    timeout: options.timeout || 60000,
+    timeout: options.timeout || 90000, // Increased to 90s for slow Render services
+    proxyTimeout: options.proxyTimeout || 90000,
 
     // Additional options
     ...options,
