@@ -40,7 +40,12 @@ export const createOrder = async (req, res) => {
         .json({ message: "CART_SERVICE_URL is not configured" });
     }
 
-    const cartEndpoint = `${CART_SERVICE_URL.replace(/\/+$/, "")}/cart`;
+    // Cart Service mounts its routes under "/api" (see cart-service/src/app.js)
+    // Ensure we call the correct upstream path to avoid 404s
+    // Normalize CART_SERVICE_URL so we always target exactly "/api/cart"
+    const baseUrl = (CART_SERVICE_URL || "").replace(/\/+$/, "");
+    const normalizedBase = baseUrl.replace(/\/api$/, "");
+    const cartEndpoint = `${normalizedBase}/api/cart`;
 
     let cart;
     try {
@@ -105,7 +110,7 @@ export const createOrder = async (req, res) => {
     });
 
     try {
-      console.log("Calling Cart Service DELETE /cart/clear");
+      console.log("Calling Cart Service DELETE /api/cart/clear");
       await axios.delete(`${cartEndpoint}/clear`, {
         headers: { "X-Service-Token": CART_SERVICE_TOKEN },
         data: { userId }, // body for Cart Service

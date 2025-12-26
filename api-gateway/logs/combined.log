@@ -1277,3 +1277,22 @@
 2025-12-25 23:01:35 [info]: 📊 Redis: Disabled
 2025-12-25 23:01:35 [info]: 🛡️  Rate Limiting: Enabled
 2025-12-25 23:01:35 [info]: ✅ Ready to handle requests
+2025-12-26 00:18:41 [info]: Redis disabled, using in-memory rate limiting
+2025-12-26 00:18:41 [info]: 🔧 CORS_ORIGIN raw: http://localhost:4200
+2025-12-26 00:18:41 [info]: 🔧 CORS allowed origins: http://localhost:4200
+2025-12-26 00:18:41 [info]: Configuring route: /v1/auth -> http://localhost:5000 (Auth: false)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/user -> http://localhost:5000 (Auth: true)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/orders/all -> http://localhost:3002 (Auth: false)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/categories -> http://localhost:3000 (Auth: false)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/cart -> http://localhost:3001 (Auth: true)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/orders/ -> http://localhost:3002 (Auth: false)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/laptops -> http://localhost:3000 (Auth: false)
+2025-12-26 00:18:41 [info]: Configuring route: /v1/orders -> http://localhost:3002 (Auth: true)
+2025-12-26 00:18:41 [info]: 🚀 API Gateway started successfully
+2025-12-26 00:18:41 [info]: 📍 Environment: development
+2025-12-26 00:18:41 [info]: 🌐 Port: 3000
+2025-12-26 00:18:41 [info]: 🔒 CORS Origin(s): http://localhost:4200
+2025-12-26 00:18:41 [info]: 📊 Redis: Disabled
+2025-12-26 00:18:41 [info]: 🛡️  Rate Limiting: Enabled
+2025-12-26 00:18:41 [info]: ✅ Ready to handle requests

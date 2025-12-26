@@ -22,7 +22,7 @@ module.exports = {
       cwd: "./item-service",
       script: "app.js",
       env: {
-        PORT: 3000,
+        PORT: 3004,
         NODE_ENV: "production",
       },
       instances: 1,
@@ -41,7 +41,7 @@ module.exports = {
       env: {
         PORT: 3001,
         NODE_ENV: "production",
-        BOOK_SERVICE_URL: "http://localhost:3000/api/books",
+        LAPTOP_SERVICE_URL: "http://localhost:3004/api/laptops",
       },
       instances: 1,
       exec_mode: "fork",
@@ -79,7 +79,7 @@ module.exports = {
         NODE_ENV: "production",
         REDIS_URL: "redis://localhost:6379",
         AUTH_SERVICE_URL: "http://localhost:5000",
-        BOOK_SERVICE_URL: "http://localhost:3000",
+        BOOK_SERVICE_URL: "http://localhost:3004",
         CART_SERVICE_URL: "http://localhost:3001",
         ORDER_SERVICE_URL: "http://localhost:3002",
         CORS_ORIGIN: "http://localhost:4200",
