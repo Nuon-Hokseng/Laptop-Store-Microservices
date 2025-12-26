@@ -1,4 +1,4 @@
-[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (6) from .env -- tip: ⚙️  enable debug logging with { debug: true }
 MongoDB connected
-MongoDB connection details => host: ac-dsvknho-shard-00-02.d79ogpy.mongodb.net, db: order-service
+MongoDB connection details => host: ac-dsvknho-shard-00-00.d79ogpy.mongodb.net, db: order-service
 Order Service running on port 3002
